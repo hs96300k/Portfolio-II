@@ -1,0 +1,171 @@
+/* Projects Container */
+.projects-container {
+    text-align: center;
+    padding: 50px 20px;
+    color: #F5F5F5; /* Brighter white for contrast */
+    background: #1C2526; /* Dark gray to match blue */
+    box-sizing: border-box;
+  }
+  
+  /* Projects Heading */
+  .projects-heading {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #FFFFFF; /* White */
+    margin-bottom: 30px;
+  }
+  
+  /* Projects Grid */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    justify-items: center;
+    padding: 0 20px;
+    min-height: 100%;
+    z-index: 100;
+  }
+  
+  /* Project Card */
+  .project-card {
+    width: 320px;
+    height: auto;
+    background: rgba(58, 58, 58, 0.85);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    overflow: visible; /* Ensure content isn't clipped */
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+    margin: 20px;
+    position: relative;
+    z-index: 100;
+    box-sizing: border-box;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Image Container */
+  .image-container {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  
+  /* Project Image */
+  .project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+    display: block; /* Ensure image is visible */
+  }
+  
+  /* Ensure image scales on hover */
+  .image-container:hover .project-image {
+    transform: scale(1.05);
+  }
+  
+  /* Image Slider Buttons */
+  .image-slider-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    pointer-events: all;
+  }
+  
+  /* Updated Slider Button */
+  .slider-button {
+    background: transparent;
+    color: #FFFFFF; /* White */
+    border: none;
+    padding: 12px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s, color 0.3s;
+  }
+  
+  .slider-button:hover {
+    transform: scale(1.2);
+    color: #808080; /* Gray */
+  }
+  
+  /* Project Name */
+  .project-name {
+    font-size: 1.1rem;
+    margin: 15px 20px;
+    color: #F5F5F5; /* Brighter white for contrast */
+  }
+  
+  /* Project Description */
+  .project-description {
+    font-size: 0.85rem;
+    color: #F5F5F5; /* Brighter white for contrast */
+    margin: 10px 20px;
+    text-align: justify;
+    flex-grow: 1;
+  }
+  
+  /* Live Button */
+  .live-button {
+    position: relative;
+    bottom: 15px;
+    left: 50%; /* Center the button */
+    transform: translateX(-50%); /* Adjust for centering */
+    margin-top: 20px;
+    padding: 8px 16px;
+    background: #000000; /* Gray */
+    color: #FFFFFF; /* White */
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: background 0.3s, transform 0.3s;
+  }
+  
+  .live-button:hover {
+    background: #666666; /* Darker gray */
+    transform: translateX(-50%) scale(1.05); /* Keep centered on hover */
+  }
+  
+  /* Responsive Design for smaller screens */
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+  
+    .project-card {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    .project-name {
+      font-size: 1rem;
+    }
+  
+    .project-description {
+      font-size: 0.9rem;
+    }
+  
+    .live-button {
+      font-size: 0.85rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  
+    .live-button:hover {
+      transform: translateX(-50%) scale(1.05);
+    }
+  }

@@ -14,6 +14,7 @@ const Squares = ({
   const numSquaresY = useRef();
   const gridOffset = useRef({ x: 0, y: 0 });
   const mousePos = useRef({ x: null, y: null });
+  const hoveredSquare = useRef({ x: null, y: null });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -42,8 +43,25 @@ const Squares = ({
           const squareX = x - (gridOffset.current.x % squareSize);
           const squareY = y - (gridOffset.current.y % squareSize);
 
-          ctx.strokeStyle = borderColor;
-          ctx.strokeRect(squareX, squareY, squareSize, squareSize);
+          const isHovered =
+            mousePos.current.x !== null &&
+            mousePos.current.y !== null &&
+            Math.floor((mousePos.current.x - squareX) / squareSize) === 0 &&
+            Math.floor((mousePos.current.y - squareY) / squareSize) === 0;
+
+          if (isHovered) {
+            hoveredSquare.current = { x: squareX, y: squareY };
+            // Highlight hovered square with a glow and slight scale
+            ctx.fillStyle = 'rgba(0, 255, 204, 0.3)';
+            ctx.fillRect(squareX, squareY, squareSize, squareSize);
+            ctx.strokeStyle = '#00ffcc';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(squareX, squareY, squareSize, squareSize);
+          } else {
+            ctx.strokeStyle = borderColor;
+            ctx.lineWidth = 1;
+            ctx.strokeRect(squareX, squareY, squareSize, squareSize);
+          }
         }
       }
 
@@ -102,6 +120,7 @@ const Squares = ({
 
     const handleMouseLeave = () => {
       mousePos.current = { x: null, y: null };
+      hoveredSquare.current = { x: null, y: null };
     };
 
     canvas.addEventListener('mousemove', handleMouseMove);

@@ -1,8 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DecryptedText from './DecryptedText';
 import { FaLinkedin, FaGithub, FaWhatsapp } from 'react-icons/fa';
-import ShinyText from './ShinyText';
-import Lanyard from './Lanyard';
 import './Home.css';
 
 const Home = () => {
@@ -21,8 +19,13 @@ const Home = () => {
     }, 1000);
   };
 
+  useEffect(() => {
+    console.log("Home component mounted");
+    return () => console.log("Home component unmounted");
+  }, []);
+
   return (
-    <div className="home-container">
+    <div className="home-wrapper">
       <div className="content-left">
         <h1>Hi, I am Hashir Sajid</h1>
         <div className="decrypted-text">
@@ -51,11 +54,11 @@ const Home = () => {
           </a>
         </div>
         <a href="/cv.pdf" download>
-          <ShinyText text="Download CV" speed={3} className="cv-button" />
+          <button className="cv-button">Download CV</button>
         </a>
       </div>
       <div className="content-right">
-        <Lanyard position={[0, 0, 5]} gravity={[0, -40, 0]} />
+        {/* Reserved for future content or visuals */}
       </div>
     </div>
   );

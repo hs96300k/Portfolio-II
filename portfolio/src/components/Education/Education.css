@@ -1,0 +1,80 @@
+.education-container {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  background: #1E90FF; /* Blue background */
+  display: flex;
+  justify-content: space-between; /* Space for cards on left, image on right */
+  align-items: center;
+}
+
+.education-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align cards to the left */
+  padding: 20px;
+  height: 100%;
+  overflow-y: hidden; /* No scrollbar */
+  width: 50%; /* Reserve space for image */
+}
+
+.education-heading {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #FFFFFF; /* White for contrast */
+  margin-bottom: 20px;
+  text-align: left; /* Align left */
+}
+
+.education-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 450px; /* Increased to support wider cards */
+  width: 100%;
+}
+
+.education-card {
+  background: rgba(255, 255, 255, 0.7); /* Transparent */
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  width: 100%; /* Full width of parent */
+  max-width: 450px; /* Wider for rectangular shape */
+  min-height: 180px; /* Adjusted height to fit */
+}
+
+.education-card:hover {
+  transform: scale(1.05); /* Slight scale-up */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+  background: rgba(255, 255, 255, 0.85); /* Less transparent on hover */
+}
+
+.education-card h2 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #333; /* Dark gray */
+  margin-bottom: 8px;
+}
+
+.education-card h3 {
+  font-size: 1.3rem;
+  color: #808080; /* Gray */
+  margin-bottom: 8px;
+}
+
+.education-card span {
+  font-size: 0.9rem;
+  color: #808080; /* Gray */
+  display: block;
+  margin-bottom: 8px;
+}
+
+.education-card p {
+  font-size: 0.9rem;
+  color: #333; /* Dark gray */
+  line-height: 1.4;
+}
